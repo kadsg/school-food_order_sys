@@ -31,4 +31,8 @@ public class CuisineManage {
     public List<Cuisine> search(Shop shop) {
         return dao.search(shop);
     }
+
+    public boolean isExist(String id_cuisine) {
+        return search(id_cuisine) != null;
+    }
 }
