@@ -60,7 +60,7 @@ public class CuisineOrderDao implements Dao, OrderDao {
      */
     @Override
     public boolean delete(Object o) {
-        sql = "delete from order_shop where id_order = ?";
+        sql = "delete from order_cuisine where id_order = ?";
         CuisineOrder cuisineOrder = (CuisineOrder) o;
 
         try {
@@ -164,6 +164,11 @@ public class CuisineOrderDao implements Dao, OrderDao {
         return null;
     }
 
+    /**
+     *
+     * @param o Shop类型
+     * @return shop的所有cuisine订单
+     */
     @Override
     public List<Object> search(Object o) {
         Shop shop = (Shop) o;
