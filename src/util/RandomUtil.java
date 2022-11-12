@@ -1,6 +1,8 @@
 package util;
 
 import dao.ShopDao;
+import service.CuisineManage;
+import service.MerchantManage;
 import service.ShopManage;
 
 import java.util.Random;
@@ -32,5 +34,16 @@ public class RandomUtil {
             id_shop = RandomUtil.getRandom(length);
         } while (shopManage.isExist(id_shop));
         return id_shop;
+    }
+
+    public static String getRandomIdOfCuisine() {
+        CuisineManage cuisineManage = new CuisineManage();
+        final int length = 6;
+        String id_Cuisine;
+        // 获取长度为length的随机数（String）类型
+        do {
+            id_Cuisine = RandomUtil.getRandom(length);
+        } while (cuisineManage.isExist(id_Cuisine));
+        return id_Cuisine;
     }
 }
