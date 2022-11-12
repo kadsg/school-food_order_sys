@@ -1,7 +1,6 @@
 package dao;
 
 import bean.Merchant;
-import bean.User;
 import util.DBUtil;
 
 import java.sql.Connection;
