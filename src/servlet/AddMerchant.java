@@ -1,7 +1,7 @@
 package servlet;
 
 import bean.Merchant;
-import service.MerchantManager;
+import service.MerchantManage;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -12,18 +12,18 @@ import java.io.IOException;
 public class AddMerchant extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MerchantManager merchantManager = new MerchantManager();
+        MerchantManage merchantManage = new MerchantManage();
 
         String id_merchant = request.getParameter("id_merchant");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
 
-        if (merchantManager.isExist(id_merchant)) {
+        if (merchantManage.isExist(id_merchant)) {
             // TODO 存在，设置message
         } else {
             Merchant merchant = new Merchant(id_merchant, password, name, phone);
-            merchantManager.addMerchant(merchant);
+            merchantManage.addMerchant(merchant);
         }
     }
 

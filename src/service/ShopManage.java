@@ -35,4 +35,13 @@ public class ShopManage {
         }
         return shopList;
     }
+
+    /**
+     * 查询是否存在商铺
+     * @param id 商铺id
+     * @return
+     */
+    public boolean isExist(String id) {
+        return getShopById(id) != null;
+    }
 }
