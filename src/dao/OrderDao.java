@@ -2,6 +2,9 @@ package dao;
 
 import java.util.List;
 
+/**
+ * @author MingJie
+ */
 public interface OrderDao {
     /**
      * 查找对象o的所有订单；
