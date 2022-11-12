@@ -1,6 +1,7 @@
 package util;
 
 import dao.ShopDao;
+import service.ShopManage;
 
 import java.util.Random;
 
@@ -23,13 +24,13 @@ public class RandomUtil {
     }
 
     public static String getRandomIdOfShop() {
-        ShopDao shopDao = new ShopDao();
+        ShopManage shopManage = new ShopManage();
         final int length = 6;
         String id_shop;
         // 获取长度为length的随机数（String）类型
         do {
             id_shop = RandomUtil.getRandom(length);
-        } while (shopDao.search(id_shop) == null);
+        } while (shopManage.isExist(id_shop));
         return id_shop;
     }
 }
