@@ -6,7 +6,7 @@ import dao.MerchantDao;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MerchantManager {
+public class MerchantManage {
     MerchantDao dao = new MerchantDao();
 
     public boolean addMerchant(Merchant merchant) {
