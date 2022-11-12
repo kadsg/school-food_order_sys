@@ -49,11 +49,11 @@ public class AddShop extends HttpServlet {
         for (FileItem fileItem : fileItemList) {
             if (fileItem.isFormField()) {
                 // 如果是普通的表单对象
-                if (fileItem.getFieldName().equals("merchant_id")) {
+                if (fileItem.getFieldName().equals("id_merchant")) {
                     id_merchant = fileItem.getString("UTF-8");
                 }
 
-                if (fileItem.getFieldName().equals("id_merchant")) {
+                if (fileItem.getFieldName().equals("name_shop")) {
                     name_shop = fileItem.getString("UTF-8");
                 }
             } else {
@@ -61,10 +61,10 @@ public class AddShop extends HttpServlet {
                 // 获取文件名
                 oldName = fileItem.getName();
                 // 文件重命名，以商铺的id进行命名
-                newName = id_shop + FilenameUtils.getExtension(oldName);
+                newName = id_shop + "." +FilenameUtils.getExtension(oldName);
                 // 获取保存文件的路径
                 String path = (String) getServletContext().getAttribute("path");
-                path += "/image/shop" + id_shop;
+                path += "/image/shop/" + id_shop;
 
                 // 判断是否有该文件夹（应该是没有的）
                 File file = new File(path);

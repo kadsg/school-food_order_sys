@@ -62,7 +62,7 @@ public class AddCuisine extends HttpServlet {
                 // 获取文件名
                 oldName = fileItem.getName();
                 // 文件重命名，以菜品的id进行命名
-                newName = id_cuisine + FilenameUtils.getExtension(oldName);
+                newName = id_cuisine + "." + FilenameUtils.getExtension(oldName);
                 // 获取保存文件的路径
                 String path = (String) getServletContext().getAttribute("path");
                 path += "/image/shop/" + shop.getId_shop() + "/" + id_cuisine;
