@@ -21,7 +21,7 @@ public class MerchantDao implements Dao {
 
     @Override
     public boolean add(Object o) {
-        sql = "insert into merchant values(?,?,?,?)";
+        sql = "insert into merchant values (?,?,?,?)";
         Merchant merchant = (Merchant) o;
 
         try {

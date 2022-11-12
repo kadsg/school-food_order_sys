@@ -7,9 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MerchantManage {
-    MerchantDao dao = new MerchantDao();
+    MerchantDao dao;
 
     public boolean addMerchant(Merchant merchant) {
+        dao = new MerchantDao();
         return dao.add(merchant);
     }
 
@@ -19,6 +20,7 @@ public class MerchantManage {
      * @return
      */
     public Merchant getMerchantById(String id) {
+        dao = new MerchantDao();
         return (Merchant) dao.search(id);
     }
 
@@ -27,6 +29,7 @@ public class MerchantManage {
      * @return
      */
     public List<Merchant> getAllMerchant() {
+        dao = new MerchantDao();
         List<Merchant> merchantList = new LinkedList<>();
         List<Object> list = dao.search();
 

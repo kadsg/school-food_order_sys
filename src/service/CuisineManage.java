@@ -7,10 +7,10 @@ import dao.CuisineDao;
 import java.util.List;
 
 public class CuisineManage {
-    CuisineDao dao = new CuisineDao();
+    CuisineDao dao;
 
     public boolean addCuisine(Cuisine cuisine) {
-        // TODO 在images/shop下上传菜品图片
+        dao = new CuisineDao();
         return dao.add(cuisine);
     }
 
@@ -20,6 +20,7 @@ public class CuisineManage {
      * @return
      */
     public Cuisine search(String id) {
+        dao = new CuisineDao();
         return (Cuisine) dao.search(id);
     }
 
@@ -29,6 +30,7 @@ public class CuisineManage {
      * @return
      */
     public List<Cuisine> search(Shop shop) {
+        dao = new CuisineDao();
         return dao.search(shop);
     }
 

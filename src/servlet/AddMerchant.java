@@ -16,7 +16,7 @@ public class AddMerchant extends HttpServlet {
 
         String id_merchant = request.getParameter("id_merchant");
         String password = request.getParameter("password");
-        String name = request.getParameter("name");
+        String name = request.getParameter("name_merchant");
         String phone = request.getParameter("phone");
 
         if (merchantManage.isExist(id_merchant)) {

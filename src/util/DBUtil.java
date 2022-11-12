@@ -9,16 +9,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DBUtil {
-    private Context context, contextNeeded;
-    private DataSource ds;
-    private Connection con;
+    private final Context context;
+    private final Context contextNeeded;
+    private final DataSource ds;
+    private final Connection con;
     private static DBUtil dbUtil = new DBUtil();
 
     private DBUtil() {
         try {
             context = new InitialContext();
             contextNeeded = (Context) context.lookup("java:comp/env");
-            ds = (DataSource) contextNeeded.lookup("rj20");
+            ds = (DataSource) contextNeeded.lookup("group");
             con = ds.getConnection();
         } catch (NamingException | SQLException e) {
             throw new RuntimeException(e);
@@ -26,7 +27,15 @@ public class DBUtil {
     }
 
     public static Connection getConnection() {
-        return dbUtil.con;
+        /*if (dbUtil == null) {
+            dbUtil = new DBUtil();
+        }
+        return dbUtil.con;*/
+        try {
+            return dbUtil.ds.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static PreparedStatement getPrepareStatment(String sql) {
