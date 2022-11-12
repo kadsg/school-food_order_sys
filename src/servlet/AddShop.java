@@ -32,7 +32,7 @@ public class AddShop extends HttpServlet {
         // 创建工厂类
         FileItemFactory factory = new DiskFileItemFactory();
         // 创建解析器
-        ServletFileUpload fileUpload = new ServletFileUpload();
+        ServletFileUpload fileUpload = new ServletFileUpload(factory);
         // 使用解析器解析request对象，保存在FileItem集合中
         List<FileItem> fileItemList = null;
         try {
@@ -84,8 +84,10 @@ public class AddShop extends HttpServlet {
 
         if (shopDao.add(shop)) {
             // TODO 成功
+            // TODO 页面重定向
         } else {
             // TODO 失败
+            // TODO 页面重定向
         }
     }
 }
