@@ -7,9 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ShopManage {
-    ShopDao dao = new ShopDao();
+    ShopDao dao;
 
     public boolean addShop(Shop shop) {
+        dao = new ShopDao();
         return dao.add(shop);
     }
 
@@ -19,6 +20,7 @@ public class ShopManage {
      * @return
      */
     public Shop getShopById(String id) {
+        dao = new ShopDao();
         return (Shop) dao.search(id);
     }
 
@@ -27,12 +29,16 @@ public class ShopManage {
      * @return
      */
     public List<Shop> getAllShop() {
+        dao = new ShopDao();
         List<Shop> shopList = new LinkedList<>();
         List<Object> list = dao.search();
 
-        for (Object o : list) {
-            shopList.add((Shop) o);
+        if (list != null) {
+            for (Object o : list) {
+                shopList.add((Shop) o);
+            }
         }
+
         return shopList;
     }
 

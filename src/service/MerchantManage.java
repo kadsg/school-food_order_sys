@@ -33,8 +33,10 @@ public class MerchantManage {
         List<Merchant> merchantList = new LinkedList<>();
         List<Object> list = dao.search();
 
-        for (Object o : list) {
-            merchantList.add((Merchant) o);
+        if (list != null) {
+            for (Object o : list) {
+                merchantList.add((Merchant) o);
+            }
         }
         return merchantList;
     }
