@@ -45,7 +45,7 @@ public class AddCuisine extends HttpServlet {
         String name_cuisine = null;
         String price = null;
         String oldName;
-        String newName;
+        String newName = null;
 
         for (FileItem fileItem : fileItemList) {
             if (fileItem.isFormField()) {
@@ -81,7 +81,7 @@ public class AddCuisine extends HttpServlet {
             }
         }
         Cuisine cuisine = new Cuisine(id_cuisine, shop.getId_shop(), name_cuisine,
-                Double.parseDouble(price), id_cuisine);
+                Double.parseDouble(price), newName);
         CuisineDao cuisineDao = new CuisineDao();
 
         if (cuisineDao.add(cuisine)) {

@@ -79,7 +79,7 @@ public class AddShop extends HttpServlet {
                 }
             }
         }
-        Shop shop = new Shop(id_shop,id_merchant, name_shop, id_shop);
+        Shop shop = new Shop(id_shop,id_merchant, name_shop, newName);
         ShopDao shopDao = new ShopDao();
 
         if (shopDao.add(shop)) {
