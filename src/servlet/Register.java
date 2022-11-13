@@ -25,7 +25,8 @@ public class Register extends HttpServlet {
         } else {
             User user = new User(id, password, name, phone, address);
             userManage.addUser(user);
-            // TODO 重定向
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("/view/index_user.jsp");
         }
     }
 
