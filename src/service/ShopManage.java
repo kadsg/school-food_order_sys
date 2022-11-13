@@ -1,5 +1,6 @@
 package service;
 
+import bean.Merchant;
 import bean.Shop;
 import dao.ShopDao;
 
@@ -15,7 +16,6 @@ public class ShopManage {
     }
 
     /**
-     *
      * @param id 商铺id
      * @return
      */
@@ -26,6 +26,7 @@ public class ShopManage {
 
     /**
      * 返回系统的所有商铺
+     *
      * @return
      */
     public List<Shop> getAllShop() {
@@ -43,7 +44,30 @@ public class ShopManage {
     }
 
     /**
+     * 返回商家的所有商铺
+     *
+     * @param merchant
+     * @return
+     */
+    public List<Shop> getAllShop(Merchant merchant) {
+        dao = new ShopDao();
+        List<Shop> shopList = new LinkedList<>();
+        List<Object> list = dao.search();
+
+        if (list != null) {
+            for (Object o : list) {
+                if (merchant.getId().equals(((Shop) o).getId_merchant())) {
+                    shopList.add((Shop) o);
+                }
+            }
+        }
+
+        return shopList;
+    }
+
+    /**
      * 查询是否存在商铺
+     *
      * @param id 商铺id
      * @return
      */
