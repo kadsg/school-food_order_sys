@@ -1,5 +1,9 @@
 package servlet;
 
+import bean.Merchant;
+import bean.User;
+import service.MerchantManage;
+import service.UserManage;
 import util.LoginParse;
 
 import javax.servlet.*;
@@ -15,12 +19,18 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         String identity = request.getParameter("identity");
 
+        HttpSession session = request.getSession();
+
         // TODO 验证码, 输入校验
         if (LoginParse.parse(id, password, identity)) {
             if (identity.equals("user")) {
-                // TODO 重定向用户界面
+                User user = new UserManage().getUserById(id);
+                session.setAttribute("user", user);
+                response.sendRedirect("/view/index_user.jsp");
             } else {
-                // TODO 重定向商家界面
+                Merchant merchant = new MerchantManage().getMerchantById(id);
+                session.setAttribute("merchant", merchant);
+                response.sendRedirect("/view/index_merchant.jsp");
             }
         } else {
             // TODO 提示重新输入
