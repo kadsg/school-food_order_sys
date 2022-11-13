@@ -23,7 +23,7 @@ public class UserOrderDao implements Dao, OrderDao {
 
     @Override
     public boolean add(Object o) {
-        sql = "insert into order_user values(?,?,?,?,?,?,?,?,?)";
+        sql = "insert into order_user(id_order, id_user, id_shop, name_shop, count, total, time_order, time_scheduled, flag) values(?,?,?,?,?,?,?,?,?)";
         UserOrder userOrder = (UserOrder) o;
 
         try {

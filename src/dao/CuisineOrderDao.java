@@ -23,7 +23,7 @@ public class CuisineOrderDao implements Dao, OrderDao {
 
     @Override
     public boolean add(Object o) {
-        sql = "insert into order_cuisine values(?,?,?,?,?,?,?)";
+        sql = "insert into order_cuisine(id_order, id_cuisine, name_cuisine, count, total, time_order, flag) values(?,?,?,?,?,?,?)";
         CuisineOrder cuisineOrder = (CuisineOrder) o;
 
         try {
