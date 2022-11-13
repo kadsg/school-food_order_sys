@@ -1,5 +1,8 @@
 <%@ page import="bean.Shop" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="bean.User" %>
+<%@ page import="util.PathUtil" %>
+<%@ page import="service.ShopManage" %><%--
   Created by IntelliJ IDEA.
   User: kadsg
   Date: 2022/11/13
@@ -8,12 +11,53 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-  List<Shop> shopList = (List<Shop>) application.getAttribute("shopList");
+  List<Shop> shopList = new ShopManage().getAllShop();
+  User user = (User) session.getAttribute("user");
   // 第一次载入页面时，进行页面的初始化
-  if (shopList == null) {
-    RequestDispatcher dispatcher = request.getRequestDispatcher("/Init");
-    dispatcher.forward(request, response);
+%>
+<%
+  StringBuffer stringBuffer = new StringBuffer();
+  String path;
+  stringBuffer.append("<div class=\"header\">\n" +
+          "        <h1>欢迎使用校园点餐系统</h1>\n" +
+          "        <h3>欢迎用户：" + user.getId() + "　　　　" + user.getName() + "</h3></div>");
+  stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
+          "  <a href=\"\">首页</a>\n" +
+          "  <a href=\"#\">我的订单</a>\n" +
+          "</div>");
+%>
+<%
+  stringBuffer.append("<div>");
+  stringBuffer.append("<table>");
+
+  if (shopList != null) {
+    for (Shop shop : shopList) {
+      stringBuffer.append("<tr>");
+
+      /*显示图片*/
+      stringBuffer.append("<td>");
+      path = PathUtil.getPath(shop);
+      stringBuffer.append("<img src=\"" + path + "\" alt=\"" + shop.getName() + "\" width: 50px; height: 50px>");
+      stringBuffer.append("</td>");
+
+      /*显示店名*/
+      stringBuffer.append("<td>");
+      stringBuffer.append(shop.getName());
+      stringBuffer.append("</td>");
+
+      /*显示链接*/
+      stringBuffer.append("<td>");
+
+      /*点击进入店铺*/
+      stringBuffer.append("<a href=\"index_shop_user.jsp?id_shop=" + shop.getId_shop() + "\">查看</a>");
+      stringBuffer.append("</td>");
+
+      stringBuffer.append("</tr>");
+    }
   }
+  stringBuffer.append("</table>");
+  stringBuffer.append("</div>");
+
 %>
 <link rel="stylesheet" href="/image/css/box.css">
 <html>
@@ -21,22 +65,8 @@
   <title>校园点餐系统</title>
 </head>
 <body>
-<div class="header">
-  <h1>头部区域</h1>
-</div>
-
-<div class="topnav" style="margin: auto">
-  <a href="#">首页</a>
-  <a href="#">个人中心</a>
-</div>
-
-<%--  在这个区域显示shop列表--%>
-<p>AAAAAAAAAAAAAAA</p>
-<p>AAAAAAAAAAAAAAA</p>
-<p>AAAAAAAAAAAAAAA</p>
-<p>AAAAAAAAAAAAAAA</p>
-<p>AAAAAAAAAAAAAAA</p>
-<%=shopList.size()%>
-
+<%
+  out.print(stringBuffer);
+%>
 </body>
 </html>
