@@ -2,7 +2,6 @@ package util;
 
 import bean.Merchant;
 import bean.User;
-import dao.UserDao;
 import service.MerchantManage;
 import service.UserManage;
 
