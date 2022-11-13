@@ -85,8 +85,8 @@ public class AddCuisine extends HttpServlet {
         CuisineDao cuisineDao = new CuisineDao();
 
         if (cuisineDao.add(cuisine)) {
-            // TODO 成功
-            // TODO 页面重定向
+            // 成功 重定向
+            response.sendRedirect("/view/index_shop_merchant.jsp");
         } else {
             // TODO 失败
             // TODO 页面重定向
