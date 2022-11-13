@@ -16,6 +16,6 @@ public class PathUtil {
     }
 
     public static String getPath(Cuisine cuisine) {
-        return path + cuisine.getId_shop() + "/" + cuisine.getPic();
+        return path + cuisine.getId_shop() + "/" + cuisine.getId_cuisine() + "/" + cuisine.getPic();
     }
 }
