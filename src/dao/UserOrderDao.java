@@ -176,7 +176,7 @@ public class UserOrderDao implements Dao, OrderDao {
     public List<Object> search(Object o) {
         User user = (User) o;
         List<Object>userOrderList = new LinkedList<>();
-        sql = "select id_order, id_shop, name_shop, count, total," +
+        sql = "select id_order, id_user, id_shop, name_shop, count, total," +
                 " time_order, time_scheduled, flag from order_user where id_user=?";
 
         try {
