@@ -26,9 +26,33 @@
     stringBuffer.append("<div class=\"header\">\n" +
             "        <h1>校园点餐系统商家后台</h1>\n" +
             "        <h3>欢迎用户：" + merchant.getId() + "   " + merchant.getName() + "</h3></div>");
+    stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
+            "        <a href=\"/view/index_merchant.jsp\">首页</a>\n" +
+            "        <a href=\"/view/addShop.jsp\">新增商铺</a>\n" +
+            "        <a href=\"#\">订单查询</a>\n" +
+            "    </div>");
     if (shopList != null) {
         stringBuffer.append("<div>");
         stringBuffer.append("<table>");
+
+        stringBuffer.append("<div>");
+        stringBuffer.append("<table>");
+
+        stringBuffer.append("<tr>");
+
+        stringBuffer.append("<td>");
+        stringBuffer.append("门面图");
+        stringBuffer.append("</td>");
+
+        stringBuffer.append("<td>");
+        stringBuffer.append("店面名");
+        stringBuffer.append("</td>");
+
+        stringBuffer.append("<td>");
+        stringBuffer.append("操作");
+        stringBuffer.append("</td>");
+
+        stringBuffer.append("</tr>");
 
         for (Shop shop : shopList) {
             stringBuffer.append("<tr>");

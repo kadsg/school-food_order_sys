@@ -21,7 +21,8 @@
     </div>
 
     <div class="topnav" style="margin: auto">
-        <a href="/view/checkShop.jsp">查看我的商铺</a>
+        <a href="/view/checkShop.jsp">我的商铺</a>
+        <a href="/view/addShop.jsp">新增商铺</a>
         <a href="#">订单查询</a>
     </div>
 </body>

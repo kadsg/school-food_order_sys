@@ -22,7 +22,7 @@
           "        <h1>欢迎使用校园点餐系统</h1>\n" +
           "        <h3>欢迎用户：" + user.getId() + "　　　　" + user.getName() + "</h3></div>");
   stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
-          "  <a href=\"\">首页</a>\n" +
+          "  <a href=\"/view/index_user.jsp\">首页</a>\n" +
           "  <a href=\"/GetUserOrder\">我的订单</a>\n" +
           "</div>");
 %>
@@ -31,13 +31,29 @@
   stringBuffer.append("<table>");
 
   if (shopList != null) {
+    stringBuffer.append("<tr>");
+
+    stringBuffer.append("<td>");
+    stringBuffer.append("门店图");
+    stringBuffer.append("</td>");
+
+    stringBuffer.append("<td>");
+    stringBuffer.append("店名");
+    stringBuffer.append("</td>");
+
+    stringBuffer.append("<td>");
+    stringBuffer.append("操作");
+    stringBuffer.append("</td>");
+
+    stringBuffer.append("</tr>");
+
     for (Shop shop : shopList) {
       stringBuffer.append("<tr>");
 
       /*显示图片*/
       stringBuffer.append("<td>");
       path = PathUtil.getPath(shop);
-      stringBuffer.append("<img src=\"" + path + "\" alt=\"" + shop.getName() + "\" width: 50px; height: 50px>");
+      stringBuffer.append("<img src=\"" + path + "\" alt=\"" + shop.getName() + "\">");
       stringBuffer.append("</td>");
 
       /*显示店名*/

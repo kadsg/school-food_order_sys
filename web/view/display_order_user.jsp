@@ -25,7 +25,7 @@
             "        <h1>欢迎使用校园点餐系统</h1>\n" +
             "        <h3>欢迎用户：" + user.getId() + "　　　　" + user.getName() + "</h3></div>");
     stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
-            "  <a href=\"\">首页</a>\n" +
+            "  <a href=\"index_user.jsp\">首页</a>\n" +
             "  <a href=\"/GetUserOrder\">我的订单</a>\n" +
             "</div>");
 %>
@@ -42,6 +42,7 @@
                 "        <th>总计</th>\n" +
                 "        <th>预定时间</th>\n" +
                 "        <th>下单时间</th>\n" +
+                "        <th>操作</th>\n" +
                 "    </tr>");
         for (UserOrder userOrder : userOrderList) {
             stringBuffer.append("<tr>\n" +
@@ -51,10 +52,13 @@
                     "        <td>" + userOrder.getTotal() + "</td>\n" +
                     "        <td>" + userOrder.getTime_scheduled() + "</td>\n" +
                     "        <td>" + userOrder.getTime_order() + "</td>\n" +
+                    "        <td><a href=\"/view/display_detail_order_user.jsp?id_order=" + userOrder.getId_order() + "\">查看详情</a></td>\n" +
                     "    </tr>");
         }
     } else {
+        stringBuffer.append("<p>");
         stringBuffer.append("当前没有订单");
+        stringBuffer.append("</p>");
     }
     stringBuffer.append("</table>");
     stringBuffer.append("</div>");

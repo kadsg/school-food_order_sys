@@ -18,8 +18,5 @@
     <div>
       <a href="addMerchant.jsp">商家注册</a>
     </div>
-    <div>
-      <a href="addShop.jsp">新增商铺</a>
-    </div>
 </body>
 </html>

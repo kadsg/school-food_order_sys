@@ -1,4 +1,4 @@
-<%--
+<%@ page import="bean.Merchant" %><%--
   Created by IntelliJ IDEA.
   User: kadsg
   Date: 2022/11/12
@@ -17,8 +17,9 @@
             <p>添加商铺</p>
         </div>
         <div>
-            <label for="id_merchant">请输入商家账号</label>
-            <input type="text" name="id_merchant" id="id_merchant">
+<%--            <label for="id_merchant">商家账号</label>--%>
+<%--            <input type="text" name="id_merchant" id="id_merchant">--%>
+            <input type="hidden" name="id_merchant" value="<%=((Merchant)session.getAttribute("merchant")).getId()%>">
             <label for="name_shop">请输入店名</label>
             <input type="text" name="name_shop" id="name_shop">
             <label for="pic">请选择店面图片</label>

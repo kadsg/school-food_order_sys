@@ -25,17 +25,37 @@
     StringBuffer stringBuffer = new StringBuffer();
     String path;
     stringBuffer.append("<div class=\"header\">\n" +
-            "        <h1>欢迎使用校园点餐系统商家</h1>\n" +
+            "        <h1>欢迎使用校园点餐系统</h1>\n" +
             "        <h3>欢迎用户：" + user.getId() + "　　　　" + user.getName() + "</h3></div>");
     stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
             "      <a href=\"index_user.jsp\">返回首页</a>\n" +
-            "      <a href=\"#\">订单查询</a>\n" +
+            "      <a href=\"/GetUserOrder\">订单查询</a>\n" +
             "    </div>");
 
     if (cuisineList != null) {
         stringBuffer.append("<form action=\"/Buy\">");
         stringBuffer.append("<div>");
         stringBuffer.append("<table>");
+
+        stringBuffer.append("<tr>");
+
+        stringBuffer.append("<td>");
+        stringBuffer.append("菜品图");
+        stringBuffer.append("</td>");
+
+        stringBuffer.append("<td>");
+        stringBuffer.append("菜名");
+        stringBuffer.append("</td>");
+
+        stringBuffer.append("<td>");
+        stringBuffer.append("单价（元）");
+        stringBuffer.append("</td>");
+
+        stringBuffer.append("<td>");
+        stringBuffer.append("选择");
+        stringBuffer.append("</td>");
+
+        stringBuffer.append("</tr>");
 
         for (Cuisine cuisine : cuisineList) {
             stringBuffer.append("<tr>");
@@ -64,16 +84,23 @@
             stringBuffer.append("</tr>");
         }
         stringBuffer.append("</table>");
-        stringBuffer.append("</div>");
 
+        stringBuffer.append("<div>");
         stringBuffer.append("<label for=\"time\">请选择预定时间</label>");
         stringBuffer.append("<input type=\"datetime-local\" step=\"01\" id=\"time\" name=\"time\">");
+        stringBuffer.append("<br>");
+        stringBuffer.append("<div>");
+
         stringBuffer.append("<input type=\"hidden\" name=\"id_shop\" value=\"" + shop.getId_shop() + "\">");
-        stringBuffer.append("<input type=\"submit\" value=\"下单\">");
+        stringBuffer.append("<input type=\"submit\" value=\"下单\" onclick= >");
+
+        stringBuffer.append("</div>");
         stringBuffer.append("</form>");
 
     } else {
-        stringBuffer.append("该店铺暂无菜品");
+        stringBuffer.append("<div>");
+        stringBuffer.append("<p>该店铺暂无菜品<p>");
+        stringBuffer.append("</div>");
     }
 %>
 <head>

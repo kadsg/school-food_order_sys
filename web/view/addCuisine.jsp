@@ -17,7 +17,7 @@
     <title>菜品添加</title>
 </head>
 <body>
-    <form action="${pageContext.request.contextPath}/AddCuisine" method="post" enctype="multipart/form-data">
+    <form action="${pageContext.request.contextPath}/AddCuisine?id_shop=<%=shop.getId_shop()%>" method="post" enctype="multipart/form-data">
         <div>
             <p><%=shop.getName()%>-菜品添加</p>
         </div>
