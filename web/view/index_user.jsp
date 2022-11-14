@@ -23,7 +23,7 @@
           "        <h3>欢迎用户：" + user.getId() + "　　　　" + user.getName() + "</h3></div>");
   stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
           "  <a href=\"\">首页</a>\n" +
-          "  <a href=\"#\">我的订单</a>\n" +
+          "  <a href=\"/GetUserOrder\">我的订单</a>\n" +
           "</div>");
 %>
 <%
