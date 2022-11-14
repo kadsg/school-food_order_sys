@@ -72,6 +72,10 @@ public class Buy extends HttpServlet {
             // 提交事务
             con.commit();
 
+//            HttpSession session = request.getSession();
+//            session.setAttribute("userOrder", userOrder);
+            response.sendRedirect("/view/display_order_after_buy.jsp?id_order=" + id_order);
+
             // TODO 订单跳转
         } catch (SQLException e) {
             try {

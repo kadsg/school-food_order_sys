@@ -86,7 +86,7 @@ public class AddCuisine extends HttpServlet {
 
         if (cuisineDao.add(cuisine)) {
             // 成功 重定向
-            response.sendRedirect("/view/index_shop_merchant.jsp");
+            response.sendRedirect("/view/index_shop_merchant.jsp?id_shop=" + request.getParameter("id_shop"));
         } else {
             // TODO 失败
             // TODO 页面重定向
