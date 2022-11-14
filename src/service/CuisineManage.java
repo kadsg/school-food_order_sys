@@ -34,6 +34,21 @@ public class CuisineManage {
         return dao.search(shop);
     }
 
+    /**
+     * 删除菜品
+     * @param id_cuisine 菜品id
+     * @return
+     */
+    public boolean delete(String id_cuisine) {
+        dao = new CuisineDao();
+        if (isExist(id_cuisine)) {
+            Cuisine cuisine = (Cuisine) dao.search(id_cuisine);
+            dao = new CuisineDao();
+            return dao.delete(cuisine);
+        }
+        return false;
+    }
+
     public boolean isExist(String id_cuisine) {
         return search(id_cuisine) != null;
     }

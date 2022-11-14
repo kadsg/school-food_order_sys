@@ -86,6 +86,7 @@ public class CuisineOrderDao implements Dao, OrderDao {
 
     /**
      * 大概率不会用
+     *
      * @param o
      * @return
      */
@@ -158,21 +159,55 @@ public class CuisineOrderDao implements Dao, OrderDao {
         return cuisineOrder;
     }
 
+    /**
+     * 获取所有菜品订单
+     * @return
+     */
     @Override
     public List<Object> search() {
-        // TODO 暂时不做，没有使用场景
-        return null;
+        List<Object> cuisineOrderList = null;
+        sql = "select id_order, id_cuisine, name_cuisine, count, total," +
+                " time_order, flag from order_cuisine";
+
+        try {
+            preparedStatement = con.prepareStatement(sql);
+
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                if (cuisineOrderList == null) {
+                    cuisineOrderList = new LinkedList<>();
+                }
+                CuisineOrder cuisineOrder = new CuisineOrder(resultSet.getString("id_order"),
+                        resultSet.getString("id_cuisine"),
+                        resultSet.getString("name_cuisine"),
+                        resultSet.getInt("count"),
+                        resultSet.getDouble("total"),
+                        resultSet.getString("time_order"),
+                        resultSet.getInt("flag"));
+                cuisineOrderList.add(cuisineOrder);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                preparedStatement.close();
+                con.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return cuisineOrderList;
     }
 
     /**
-     *
      * @param o Shop类型
      * @return shop的所有cuisine订单
      */
     @Override
     public List<Object> search(Object o) {
         Shop shop = (Shop) o;
-        List<Object>cuisineOrderList = new LinkedList<>();
+        List<Object> cuisineOrderList = new LinkedList<>();
         sql = "select id_order, id_cuisine, name_cuisine, count, total," +
                 " time_order, flag from order_cuisine where id_order=?";
 

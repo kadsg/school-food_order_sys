@@ -78,6 +78,27 @@ public class OrderManage {
     }
 
     /**
+     * 获取所有订单号为id_order的菜品订单
+     * @param id_order
+     * @return
+     */
+    public List<CuisineOrder> getAllCuisineOrderById(String id_order) {
+        List<CuisineOrder> cuisineOrderList = null;
+//        Shop shop = new ShopManage().getShopById(getUserOrderById(id_order).getId_shop());
+        List<Object> tempList = new CuisineOrderDao().search();
+
+        for (Object o : tempList) {
+            if (((CuisineOrder) o).getId_order().equals(id_order)) {
+                if (cuisineOrderList == null) {
+                    cuisineOrderList = new LinkedList<>();
+                }
+                cuisineOrderList.add((CuisineOrder) o);
+            }
+        }
+        return cuisineOrderList;
+    }
+
+    /**
      * 取得商铺的所有订单
      * @param shop
      * @return
