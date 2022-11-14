@@ -1,16 +1,16 @@
 div {
-    width: 50%;
+    width: 65%;
     margin: auto;
-    padding: 10px;
+    padding: 35px;
     border-radius: 4px;
 }
 
 div.top {
     width: 95%;
     margin-bottom: 16px;
-    border-bottom: black solid 1px;
+    border-bottom: lightskyblue solid 1px;
     border-radius: 0px;
-    text-align: center
+    text-align: center;
 }
 
 input[type=text] {
@@ -26,7 +26,7 @@ input[type=submit], select {
     width: 60%;
     padding: 16px;
     margin: 20px;
-    background-color: gray;
+    background-color: cornflowerblue;
     color: white;
     border: none;
 }
@@ -75,15 +75,15 @@ li a:hover:not(.active) {
     background-color: #111;
 }
 
-table {
-    margin: 0;
-    font-size: 30px;
-    text-align: center;
-}
+/*table {*/
+/*    margin: 0;*/
+/*    font-size: 30px;*/
+/*    text-align: center;*/
+/*}*/
 
-table tr {
-    height: 15%;
-}
+/*table tr {*/
+/*    height: 15%;*/
+/*}*/
 
 .active {
     background-color: #4CAF50;
@@ -99,16 +99,22 @@ table tr {
 
 /* 导航条 */
 .topnav {
+
     overflow: hidden;
-    background-color: #333;
+    /*background-color: #333;*/
+    background-color: skyblue;
     width: 100%;
+
+    display: flex;
+    margin: auto;
 }
 
 /* 导航链接 */
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    /*color: #f2f2f2;*/
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -118,4 +124,50 @@ table tr {
 .topnav a:hover {
     background-color: #ddd;
     color: black;
+}
+
+table
+{
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+
+    width: 100%;
+    padding-bottom: 20px;
+    table-layout: fixed;word-break: break-all; word-wrap: break-word;
+}
+
+table td, table th
+{
+    border: 1px solid #cad9ea;
+    color: #666;
+    height: 30px;
+}
+
+table thead th
+{
+    background-color: #CCE8EB;
+    width: 100px;
+}
+
+table tr:nth-child(odd)
+{
+    background: #fff;
+}
+
+table tr:nth-child(even)
+{
+    background: #F5FAFA;
+}
+
+table img {
+    width: 200px;
+    height: 120px;
+    display: block;
+}
+
+div form {
+    width: 95%;
+    background-color: #CCE8EB;
+    border-radius: 5px
 }
