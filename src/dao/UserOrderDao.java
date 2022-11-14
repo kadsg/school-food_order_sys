@@ -142,7 +142,7 @@ public class UserOrderDao implements Dao, OrderDao {
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 userOrder = new UserOrder(resultSet.getString("id_order"),
-                        resultSet.getString("id_user"),
+                        id,
                         resultSet.getString("id_shop"),
                         resultSet.getString("name_shop"),
                         resultSet.getInt("count"),
