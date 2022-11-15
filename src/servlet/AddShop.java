@@ -83,8 +83,7 @@ public class AddShop extends HttpServlet {
         ShopDao shopDao = new ShopDao();
 
         if (shopDao.add(shop)) {
-            // TODO 成功
-            // TODO 页面重定向
+            response.sendRedirect("/view/index_merchant.jsp");
         } else {
             // TODO 失败
             // TODO 页面重定向
