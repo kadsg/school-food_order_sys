@@ -70,12 +70,13 @@ public class OrderManage {
         List<UserOrder> userOrderList = null;
         List<Object> list = new UserOrderDao().search(user);
 
-
-        for (Object o : list) {
-            if (userOrderList == null) {
-                userOrderList = new LinkedList<>();
+        if (list != null) {
+            for (Object o : list) {
+                if (userOrderList == null) {
+                    userOrderList = new LinkedList<>();
+                }
+                userOrderList.add((UserOrder) o);
             }
-            userOrderList.add((UserOrder) o);
         }
         return userOrderList;
     }
