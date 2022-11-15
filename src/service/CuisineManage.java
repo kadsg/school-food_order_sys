@@ -40,8 +40,8 @@ public class CuisineManage {
      * @return
      */
     public boolean delete(String id_cuisine) {
-        dao = new CuisineDao();
         if (isExist(id_cuisine)) {
+            dao = new CuisineDao();
             Cuisine cuisine = (Cuisine) dao.search(id_cuisine);
             dao = new CuisineDao();
             return dao.delete(cuisine);
