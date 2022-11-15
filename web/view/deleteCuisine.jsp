@@ -38,7 +38,7 @@
           "      <a href=\"/view/index_merchant.jsp\">首页</a>\n" +
           "      <a href=\"addCuisine.jsp?id_shop=" + id_shop + "\">新增菜品</a>\n" +
           "      <a href=\"#\">修改菜品信息</a>\n" +
-          "      <a href=\"#\">订单查询</a>\n" +
+          "      <a href=\"/view/display_order_shop.jsp\">订单查询</a>\n" +
           "    </div>");
 
   if (cuisineList != null) {

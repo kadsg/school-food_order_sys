@@ -13,6 +13,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/image/css/box.css">
 <head>
     <title>下单成功</title>
 </head>
@@ -34,7 +35,6 @@
             "</div>");
 %>
 <%
-    stringBuffer.append("<div>");
     stringBuffer.append("<p>下单成功！</p>");
     stringBuffer.append("</div>");
 %>
