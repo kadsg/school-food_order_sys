@@ -16,11 +16,6 @@
 <head>
     <title>下单成功</title>
 </head>
-<!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-<link rel="stylesheet" href="/image/css/box.css">
-<!-- 引入组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <%
     String id_order = request.getParameter("id_order");
     UserOrder userOrder = new OrderManage().getUserOrderById(id_order);
@@ -40,7 +35,6 @@
 %>
 <%
     stringBuffer.append("<div>");
-    stringBuffer.append("<i class=\"el-icon-check\"></i>");
     stringBuffer.append("<p>下单成功！</p>");
     stringBuffer.append("</div>");
 %>

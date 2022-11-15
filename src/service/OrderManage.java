@@ -124,11 +124,13 @@ public class OrderManage {
         List<ShopOrder> shopOrderList = null;
         List<Object> list = new ShopOrderDao().search(shop);
 
-        for (Object o : list) {
-            if (shopOrderList == null) {
-                shopOrderList = new LinkedList<>();
+        if (list != null) {
+            for (Object o : list) {
+                if (shopOrderList == null) {
+                    shopOrderList = new LinkedList<>();
+                }
+                shopOrderList.add((ShopOrder) o);
             }
-            shopOrderList.add((ShopOrder) o);
         }
         return shopOrderList;
     }
