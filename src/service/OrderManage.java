@@ -1,10 +1,7 @@
 package service;
 
 import bean.*;
-import dao.CuisineOrderDao;
-import dao.ShopDao;
-import dao.ShopOrderDao;
-import dao.UserOrderDao;
+import dao.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,6 +10,7 @@ public class OrderManage {
 
     /**
      * 添加UserOrder
+     *
      * @param userOrder
      * @return
      */
@@ -22,6 +20,7 @@ public class OrderManage {
 
     /**
      * 添加ShopOrder
+     *
      * @param shopOrder
      * @return
      */
@@ -31,6 +30,7 @@ public class OrderManage {
 
     /**
      * 添加CuisineOrder
+     *
      * @param cuisineOrder
      * @return
      */
@@ -52,6 +52,7 @@ public class OrderManage {
 
     /**
      * 获取订单号为id的用户订单
+     *
      * @param id
      * @return
      */
@@ -61,6 +62,7 @@ public class OrderManage {
 
     /**
      * 取得用户user的所有订单
+     *
      * @param user
      * @return
      */
@@ -68,17 +70,31 @@ public class OrderManage {
         List<UserOrder> userOrderList = null;
         List<Object> list = new UserOrderDao().search(user);
 
-        if (list != null) {
-            userOrderList = new LinkedList<>();
-            for (Object o : list) {
-                userOrderList.add((UserOrder) o);
+
+        for (Object o : list) {
+            if (userOrderList == null) {
+                userOrderList = new LinkedList<>();
             }
+            userOrderList.add((UserOrder) o);
         }
         return userOrderList;
     }
 
     /**
+     * 通过订单id查找用户
+     *
+     * @param id
+     * @return
+     */
+    public User getUserByIdOrder(String id) {
+        UserOrder userOrder = getOrderofUser(id);
+        String id_user = userOrder.getId_user();
+        return (User) new UserDao().search(userOrder.getId_user());
+    }
+
+    /**
      * 获取所有订单号为id_order的菜品订单
+     *
      * @param id_order
      * @return
      */
@@ -100,6 +116,7 @@ public class OrderManage {
 
     /**
      * 取得商铺的所有订单
+     *
      * @param shop
      * @return
      */
@@ -107,11 +124,11 @@ public class OrderManage {
         List<ShopOrder> shopOrderList = null;
         List<Object> list = new ShopOrderDao().search(shop);
 
-        if (list != null) {
-            shopOrderList = new LinkedList<>();
-            for (Object o : list) {
-                shopOrderList.add((ShopOrder) o);
+        for (Object o : list) {
+            if (shopOrderList == null) {
+                shopOrderList = new LinkedList<>();
             }
+            shopOrderList.add((ShopOrder) o);
         }
         return shopOrderList;
     }
