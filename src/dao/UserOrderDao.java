@@ -128,10 +128,15 @@ public class UserOrderDao implements Dao, OrderDao {
         // TODO return false;
     }
 
+    /**
+     * 通过订单号查找用户订单
+     * @param id
+     * @return
+     */
     @Override
     public Object search(String id) {
         UserOrder userOrder = null;
-        sql = "select id_order, id_shop, name_shop, count, total," +
+        sql = "select id_order, id_user, id_shop, name_shop, count, total," +
                 " time_order, time_scheduled, flag from order_user where id_order=?";
 
         try {
@@ -142,7 +147,7 @@ public class UserOrderDao implements Dao, OrderDao {
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 userOrder = new UserOrder(resultSet.getString("id_order"),
-                        id,
+                        resultSet.getString("id_user"),
                         resultSet.getString("id_shop"),
                         resultSet.getString("name_shop"),
                         resultSet.getInt("count"),

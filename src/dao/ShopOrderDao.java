@@ -169,7 +169,7 @@ public class ShopOrderDao implements Dao, OrderDao {
         Shop shop = (Shop) o;
         List<Object>shopOrderList = new LinkedList<>();
         sql = "select id_order, id_shop, name_shop, count, total," +
-                " time_order, flag from order_shop where id_order=?";
+                " time_order, flag from order_shop where id_shop=?";
 
         try {
             preparedStatement = con.prepareStatement(sql);
