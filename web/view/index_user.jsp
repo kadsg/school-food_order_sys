@@ -24,6 +24,7 @@
   stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
           "  <a href=\"/view/index_user.jsp\">首页</a>\n" +
           "  <a href=\"/GetUserOrder\">我的订单</a>\n" +
+          "  <a href=\"/view/login.jsp\">退出</a>\n" +
           "</div>");
 %>
 <%

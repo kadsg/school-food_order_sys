@@ -24,6 +24,9 @@ public class AddMerchant extends HttpServlet {
         } else {
             Merchant merchant = new Merchant(id_merchant, password, name, phone);
             merchantManage.addMerchant(merchant);
+
+            request.getSession().setAttribute("merchant", merchant);
+            response.sendRedirect("/view/index_merchant.jsp");
         }
     }
 

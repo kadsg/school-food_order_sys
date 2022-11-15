@@ -58,6 +58,7 @@
     stringBuffer.append("<div class=\"topnav\" style=\"margin: auto\">\n" +
             "        <a href=\"/view/index_merchant.jsp\">首页</a>\n" +
             "        <a href=\"/view/addShop.jsp\">新增商铺</a>\n" +
+            "        <a href=\"/view/login.jsp\">退出</a>\n" +
 //            "        <a href=\"#\">订单查询</a>\n" +
             "    </div>");
     if (shopList != null) {
